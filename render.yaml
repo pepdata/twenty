@@ -1,6 +1,7 @@
 services:
 - type: web
   name: front
+  region: frankfurt
   runtime: docker
   dockerfilePath: ./packages/twenty-docker/prod/twenty-front/Dockerfile
   autoDeploy: false
@@ -12,6 +13,7 @@ services:
         envVarKey: RENDER_EXTERNAL_URL
 - type: web
   name: server
+  region: frankfurt
   runtime: docker
   dockerfilePath: ./packages/twenty-docker/prod/twenty-server/Dockerfile
   dockerCommand: "sh -c ./scripts/render-run.sh"
@@ -44,6 +46,7 @@ services:
     sizeGB: 5
 - type: pserv
   name: twenty_postgres
+  region: frankfurt
   runtime: image
   image:
     url: twentycrm/twenty-postgres:latest
